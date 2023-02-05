@@ -1,26 +1,15 @@
 package org.fsm.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Fund {
     private String name;
     private List<String> stocks;
-
-    public Fund(String name, List<String> stocks) {
-        this.name = name;
-        this.stocks = stocks;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setStocks(List<String> stocks) {
-        this.stocks = stocks;
-    }
-
-    public List<String> getStocks() {
-        return stocks;
-    }
 }

@@ -1,14 +1,13 @@
-package org.fsm.entities;
+package org.fsm.config;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.fsm.entities.Fund;
 
 import java.util.List;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class Portfolio {
+public class AppConfig {
     private List<Fund> funds;
 }
