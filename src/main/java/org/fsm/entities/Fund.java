@@ -16,6 +16,10 @@ public class Fund {
         return name;
     }
 
+    public void setStocks(List<String> stocks) {
+        this.stocks = stocks;
+    }
+
     public List<String> getStocks() {
         return stocks;
     }
