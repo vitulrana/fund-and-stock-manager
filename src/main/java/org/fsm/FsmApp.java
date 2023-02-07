@@ -7,21 +7,20 @@ import org.fsm.utils.FileUtil;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URISyntaxException;
 
 public class FsmApp {
-    public static void main(String[] args) throws URISyntaxException, IOException {
-//        if (args.length == 0) {
-//            throw new RuntimeException("Input File Not Provided");
-//        } else {
-//            String filePath = args[0];
+    public static void main(String[] args) throws IOException {
+        if (args.length == 0) {
+            throw new RuntimeException("Input File Not Provided");
+        } else {
+            String filePath = args[0];
             FileUtil fileUtil = new FileUtil();
             ConfigUtil configUtil = new ConfigUtil();
             InputStream configStream = fileUtil.getInputStreamFromResource("stock_data.json");
             AppConfig config = configUtil.loadConfig(configStream);
-            InputStream inputStream = fileUtil.getInputStreamFromResource("InputTwo.txt");
+            InputStream inputStream = fileUtil.getInputStreamFromResource(filePath);
             var appHandler = new AppHandler(config, inputStream);
             appHandler.handle();
-//        }
+        }
     }
 }
