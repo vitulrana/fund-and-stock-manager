@@ -5,6 +5,12 @@ plugins {
 group 'org.fsm'
 version '1.0-SNAPSHOT'
 
+jar {
+    manifest {
+        attributes 'Main-Class' : 'org.fsm.FsmApp'
+    }
+}
+
 java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(11))

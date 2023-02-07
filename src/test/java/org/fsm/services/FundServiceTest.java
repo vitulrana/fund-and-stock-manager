@@ -35,4 +35,33 @@ public class FundServiceTest {
             fund.getStocks()
         );
     }
+
+    @Test
+    public void shouldCalculateOverlap() {
+        Fund fund1 = new Fund(
+            "ICICI_PRU_NIFTY_NEXT_50_INDEX",
+            List.of(
+                "INDRAPRASTHA GAS LIMITED",
+                "COLGATE - PALMOLIVE (INDIA) LIMITED",
+                "INDUS TOWERS LIMITED",
+                "INTERGLOBE AVIATION LIMITED"
+            )
+        );
+        Fund fund2 = new Fund(
+            "PARAG_PARIKH_CONSERVATIVE_HYBRID",
+            List.of(
+                "INDRAPRASTHA GAS LIMITED",
+                "SONA BLW PRECISION FORGINGS LIMITED",
+                "ADITYA BIRLA FASHION AND RETAIL LIMITED",
+                "GRINDWELL NORTON LIMITED"
+            )
+        );
+
+        FundService fundService = new FundService();
+
+        assertEquals(
+            "ICICI_PRU_NIFTY_NEXT_50_INDEX PARAG_PARIKH_CONSERVATIVE_HYBRID 25.00%",
+            fundService.calculateOverlap(fund1, fund2)
+        );
+    }
 }

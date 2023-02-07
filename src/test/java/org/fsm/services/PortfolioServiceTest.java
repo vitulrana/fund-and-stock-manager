@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PortfolioServiceTest {
     @Test
-    public void shouldCalculateOverlap() {
+    public void shouldCalculateOverlaps() {
         Fund fund1 = new Fund(
             "ICICI_PRU_NIFTY_NEXT_50_INDEX",
             List.of(
@@ -44,10 +44,10 @@ public class PortfolioServiceTest {
 
         assertEquals(
             List.of(
-                "AXIS_MIDCAP ICICI_PRU_NIFTY_NEXT_50_INDEX 0%",
-                "AXIS_MIDCAP PARAG_PARIKH_CONSERVATIVE_HYBRID 50%"
+                "AXIS_MIDCAP ICICI_PRU_NIFTY_NEXT_50_INDEX 0.00%",
+                "AXIS_MIDCAP PARAG_PARIKH_CONSERVATIVE_HYBRID 50.00%"
             ),
-            portfolioService.calculateOverlap(portfolio, newFund)
+            portfolioService.calculateOverlaps(portfolio, newFund)
         );
     }
 }
