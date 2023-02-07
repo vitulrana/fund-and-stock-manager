@@ -5,10 +5,19 @@ plugins {
 group 'org.fsm'
 version '1.0-SNAPSHOT'
 
+
 jar {
     manifest {
         attributes 'Main-Class' : 'org.fsm.FsmApp'
     }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    } {
+        exclude "META-INF/*.SF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
+    }
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
 }
 
 java {
