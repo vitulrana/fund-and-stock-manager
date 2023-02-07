@@ -1,10 +1,24 @@
 plugins {
     id 'java'
+    id 'jacoco'
 }
 
 group 'org.fsm'
 version '1.0-SNAPSHOT'
 
+jacoco {
+    toolVersion = "0.8.4"
+    reportsDir = file("$buildDir/jacoco")
+}
+
+jacocoTestReport { //Please do not change this
+    reports {
+        xml.enabled true
+        csv.enabled false
+        html.enabled false
+        xml.destination file("./jacoco.xml")
+    }
+}
 
 jar {
     manifest {
@@ -44,4 +58,5 @@ test {
     testLogging {
         events "PASSED", "SKIPPED", "FAILED", "STANDARD_ERROR"
     }
+    finalizedBy jacocoTestReport
 }
